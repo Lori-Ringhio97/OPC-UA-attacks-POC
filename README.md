@@ -5,6 +5,7 @@ This framework permits to execute rogue client/server/middleperson attacks in an
 - **Rogue Server**: the attacker creates a server that offers secure endpoints to establish a secure connection with new clients and make them believe that they are communicating with the actual OPC UA server in the network.
 - **Rogue Client**: the attacker creates a client that attempts to connect to the server although not authorized by the network operator.
 - **Middleperson attack (PitM)**: an attacker aims to establish themselves as Middleperson in the connection between the client and server, intercepting and manipulating all communications between both. In general, this requires achieving Rogue Client and Server objectives.
+
 [Originally developped by Alessandro Erba, Anne Müller, Nils Ole Tippenhauer at CISPA Helmholtz Center for Information Security](https://cispa.saarland/group/tippenhauer/)
 
 Requirements:
@@ -28,6 +29,7 @@ The network is composed by:
 - An OPC UA Server (.Net Core OPC UA Reference Server).
 - One *attacker* Arpspoofer.
 - An optional *observer* Tcpdumper that can be attached to different network interface.
+
 The OPC UA Client runs in the local machine given that UAExpert requires a GUI, while the OPC UA Server, the Arpspoofer and the Tcpdumper run inside containers.
 
 This attack was inspired and adapted from:
@@ -72,6 +74,7 @@ By default Docker will keep images and containers. Here are some docker commands
 - `sudo docker <image|container> prune` will remove unused images or containers.
 - `sudo docker rmi <image>` to remove a specific image.
 - `sudo docker rm <container>` to remove a specific container.
+
 In addition, a cleanup script is provided. Run `./cleanup.sh` or the following commands (superuser privileges required):
 ```
 sudo docker rmi tcpdumper arpspoofer consolerefserver mcr.microsoft.com/dotnet/core/runtime:3.1 ubuntu

@@ -67,6 +67,7 @@ In order to copy the captured pcap from the container to the host machine for an
 ```
 sudo docker cp tcpdumper:/capture.pcap <path_in_the_localhost_at_which_to_save_the_file>
 ```
+Then connect to the OPC UA Server using UAExpert. The address is: `opc.tcp://172.17.0.2:62541/Quickstarts/ReferenceServer`
 
 ### Cleanup
 By default Docker will keep images and containers. Here are some docker commands if you are not familiar with them:

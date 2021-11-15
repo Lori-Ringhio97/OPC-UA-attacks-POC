@@ -78,5 +78,6 @@ By default Docker will keep images and containers. Use the option `--rm` in the 
 
 In addition, a cleanup script is provided. Run `./cleanup.sh` or the following commands (superuser privileges required):
 ```
-sudo docker rmi tcpdumper arpspoofer consolerefserver mcr.microsoft.com/dotnet/core/runtime:3.1 ubuntu && sudo docker rm tcpdumper arpspoofer consolerefserver
+sudo docker rm tcpdumper arpspoofer consolerefserver
+sudo docker rmi tcpdumper arpspoofer consolerefserver mcr.microsoft.com/dotnet/core/runtime:3.1 ubuntu
 ```

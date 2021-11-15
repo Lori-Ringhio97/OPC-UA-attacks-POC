@@ -53,11 +53,11 @@ sudo docker build -t tcpdumper tcpdumper
 Usually an ARP spoofing attack would spoof the gateway, but here the spoofing is performd on both the OPC UA Client and Server hosts. Since they are on the same LAN, they do not need the Gateway to communicate.
 Launch 3 terminals and on terminal 1 run the following command which starts the .Net Core OPC UA Reference Server:
 ```
-sudo docker run -it --ip 172.17.0.2 -p 62541:62541 -h refserver -v "$(pwd)/OPC Foundation:/root/.local/share/OPC Foundation" consolerefserver:latest
+sudo docker run -it --name consolerefserver --ip 172.17.0.2 -p 62541:62541 -h refserver -v "$(pwd)/OPC Foundation:/root/.local/share/OPC Foundation" consolerefserver:latest
 ```
 On the second terminal launch the arpspoofer attacker:
 ```
-docker run -it --name arpspoofer arpspoofer
+sudo docker run -it --name arpspoofer arpspoofer
 ```
 On the third terminal launch the tcpdumper container attached to the arpspoofer in order to capture the network traffic as an attacker would do:
 ```

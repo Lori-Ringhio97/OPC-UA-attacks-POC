@@ -70,7 +70,7 @@ sudo docker cp tcpdumper:/capture.pcap <path_in_the_localhost_at_which_to_save_t
 Then connect to the OPC UA Server using UAExpert. The address is: `opc.tcp://172.17.0.2:62541/Quickstarts/ReferenceServer`
 
 ### Cleanup
-By default Docker will keep images and containers. Here are some docker commands if you are not familiar with them:
+By default Docker will keep images and containers. Use the option `--rm` in the docker run command in order to automatically remove containers when they exits. Here are some docker commands if you are not familiar with them:
 - `sudo docker <image|container> ls -a` will show images or containers.
 - `sudo docker <image|container> prune` will remove unused images or containers.
 - `sudo docker rmi <image>` to remove a specific image.
@@ -78,6 +78,5 @@ By default Docker will keep images and containers. Here are some docker commands
 
 In addition, a cleanup script is provided. Run `./cleanup.sh` or the following commands (superuser privileges required):
 ```
-sudo docker rmi tcpdumper arpspoofer consolerefserver mcr.microsoft.com/dotnet/core/runtime:3.1 ubuntu
-sudo docker rm tcpdumper arpspoofer consolerefserver
+sudo docker rmi tcpdumper arpspoofer consolerefserver mcr.microsoft.com/dotnet/core/runtime:3.1 ubuntu && sudo docker rm tcpdumper arpspoofer consolerefserver
 ```
